@@ -7,15 +7,15 @@ A lightweight Python conceptual model demonstrating how Port Address Translation
 1) **Packet Generation:** The script creates mock packets originating from random private IPs (192.168.1.x) destined for random public IPs.
 
 2) **Outbound Translation:** As packets leave the "internal network", the router script:
-- Replaces the original private Source IP and Port with the Router's Public IP and an assigned Router Port.
-- Records this mapping in the PAT_address_book (State Table).
+    - Replaces the original private Source IP and Port with the Router's Public IP and an assigned Router Port.
+    - Records this mapping in the PAT_address_book (State Table).
 
 3) **External Reply Simulation:** The reverse_content() function mimics the external server sending a response back by swapping the Source and Destination headers.
 
 4) **Inbound Translation:** When the reply reaches the router, it:
-- Looks up the destination port in the PAT_address_book.
-- Restores the original private IP and port so the packet can successfully reach the internal host.
-- Clears the port mapping from the table.
+    - Looks up the destination port in the PAT_address_book.
+    - Restores the original private IP and port so the packet can successfully reach the internal host.
+    - Clears the port mapping from the table.
 
 ![PAT simulation flow](Gemini_Generated_Image_kfm5hekfm5hekfm5.png)
 
